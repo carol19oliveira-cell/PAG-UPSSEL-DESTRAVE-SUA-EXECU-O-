@@ -1,0 +1,6 @@
+{
+  "name": "Destrave Sua Execução - One Click Upsell",
+  "description": "Página de One-Click Upsell do treinamento Destrave Sua Execução para contrabaixistas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
