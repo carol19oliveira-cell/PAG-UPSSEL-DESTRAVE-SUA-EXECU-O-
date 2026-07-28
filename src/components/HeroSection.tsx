@@ -47,34 +47,46 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
         </div>
 
         {/* Hero CTA Button */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 max-w-xl mx-auto">
-          <button
-            onClick={onAccept}
-            className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-500 text-black font-black text-base sm:text-xl uppercase tracking-wider py-4 sm:py-5 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 gold-button-glow cursor-pointer font-heading"
-          >
-            <Zap className="w-6 h-6 fill-black text-black shrink-0 animate-pulse" />
-            <span>SIM! QUERO DESTRAVAR MINHA EXECUÇÃO</span>
-            <ArrowRight className="w-6 h-6 shrink-0 group-hover:translate-x-1 transition-transform" />
-          </button>
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 max-w-xl mx-auto w-full">
+          <cakto-upsell-buttons className="w-full flex flex-col items-center justify-center">
+            <cakto-upsell-accept
+              bg-color="#0f7865"
+              text-color="#ffffff"
+              upsell-accept-url="members_area"
+              offer-id="i77apoq"
+              app-base-url="https://app.cakto.com.br"
+              offer-type="upsell"
+              upsell-reject-url="members_area"
+              className="w-full block"
+            >
+              <div className="w-full group relative inline-flex items-center justify-center gap-3 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-500 text-black font-black text-base sm:text-xl uppercase tracking-wider py-4 sm:py-5 px-6 rounded-xl transition-all duration-300 transform hover:-translate-y-1 gold-button-glow cursor-pointer font-heading">
+                <Zap className="w-6 h-6 fill-black text-black shrink-0 animate-pulse" />
+                <span>SIM! QUERO DESTRAVAR MINHA EXECUÇÃO</span>
+                <ArrowRight className="w-6 h-6 shrink-0 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </cakto-upsell-accept>
 
-          {/* Micro trust info */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400 font-medium">
-            <span className="flex items-center gap-1">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" /> Compra em 1-Clique segura
-            </span>
-            <span className="text-slate-600">•</span>
-            <span>Acesso Imediato</span>
-            <span className="text-slate-600">•</span>
-            <span>Garantia de 7 Dias</span>
-          </div>
+            {/* Micro trust info */}
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-400 font-medium my-3">
+              <span className="flex items-center gap-1">
+                <ShieldCheck className="w-4 h-4 text-emerald-400" /> Compra em 1-Clique segura
+              </span>
+              <span className="text-slate-600">•</span>
+              <span>Acesso Imediato</span>
+              <span className="text-slate-600">•</span>
+              <span>Garantia de 7 Dias</span>
+            </div>
 
-          {/* Decline link */}
-          <button
-            onClick={onDecline}
-            className="mt-2 text-xs sm:text-sm text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors cursor-pointer"
-          >
-            Não obrigado, prefiro recusar esta oferta e continuar apenas com a Biblioteca de Frases.
-          </button>
+            {/* Decline link */}
+            <cakto-upsell-reject
+              upsell-reject-url="members_area"
+              className="w-full block text-center"
+            >
+              <span className="text-xs sm:text-sm text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors cursor-pointer inline-block">
+                Não, vou continuar apenas com a Biblioteca.
+              </span>
+            </cakto-upsell-reject>
+          </cakto-upsell-buttons>
         </div>
       </div>
     </section>

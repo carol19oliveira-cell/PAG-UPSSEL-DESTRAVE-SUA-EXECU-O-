@@ -48,3 +48,46 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #f59e0b;
 }
+
+/* Cakto Web Components Custom Styles & Shadow DOM Overrides */
+cakto-upsell-buttons {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+cakto-upsell-accept,
+cakto-upsell-reject {
+  display: block !important;
+  width: 100% !important;
+}
+
+cakto-upsell-accept::part(button) {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  display: block !important;
+}
+
+cakto-upsell-reject::part(button) {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer !important;
+  display: block !important;
+}
+

@@ -120,38 +120,50 @@ export const UpsellOfferCard: React.FC<UpsellOfferCardProps> = ({ onAccept, onDe
           </div>
 
           {/* Action CTA Button (Bright glowing yellow/amber pill button) */}
-          <div className="mt-8 flex flex-col items-center gap-3">
-            <button
-              onClick={onAccept}
-              className="w-full group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-500 text-black font-black text-sm sm:text-base uppercase tracking-wider py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] shadow-[0_0_25px_rgba(245,158,11,0.5)] cursor-pointer font-heading"
-            >
-              <span>QUERO MEU ACESSO AGORA</span>
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+          <div className="mt-8 flex flex-col items-center gap-3 w-full">
+            <cakto-upsell-buttons className="w-full flex flex-col items-center">
+              <cakto-upsell-accept
+                bg-color="#0f7865"
+                text-color="#ffffff"
+                upsell-accept-url="members_area"
+                offer-id="i77apoq"
+                app-base-url="https://app.cakto.com.br"
+                offer-type="upsell"
+                upsell-reject-url="members_area"
+                className="w-full block"
+              >
+                <div className="w-full group relative inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-400 hover:to-amber-500 text-black font-black text-sm sm:text-base uppercase tracking-wider py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-[1.02] shadow-[0_0_25px_rgba(245,158,11,0.5)] cursor-pointer font-heading">
+                  <span>QUERO MEU ACESSO AGORA</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </div>
+              </cakto-upsell-accept>
 
-            {/* Trust Footer Badges under CTA */}
-            <div className="flex items-center justify-between w-full pt-3 text-[10px] sm:text-xs text-slate-400 font-medium border-t border-slate-800/60 mt-2">
-              <div className="flex items-center gap-1">
-                <Lock className="w-3 h-3 text-amber-500" />
-                <span>Compra 100% Segura</span>
+              {/* Trust Footer Badges under CTA */}
+              <div className="flex items-center justify-between w-full pt-3 text-[10px] sm:text-xs text-slate-400 font-medium border-t border-slate-800/60 my-3">
+                <div className="flex items-center gap-1">
+                  <Lock className="w-3 h-3 text-amber-500" />
+                  <span>Compra 100% Segura</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <Sparkles className="w-3 h-3 text-amber-500" />
+                  <span>Acesso Imediato</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <ShieldCheck className="w-3 h-3 text-amber-500" />
+                  <span>Garantia de 7 Dias</span>
+                </div>
               </div>
-              <div className="flex items-center gap-1">
-                <Sparkles className="w-3 h-3 text-amber-500" />
-                <span>Acesso Imediato</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3 text-amber-500" />
-                <span>Garantia de 7 Dias</span>
-              </div>
-            </div>
 
-            {/* Secondary Decline option */}
-            <button
-              onClick={onDecline}
-              className="mt-2 text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors cursor-pointer"
-            >
-              Não obrigado, prefiro recusar e continuar apenas com a Biblioteca de Frases.
-            </button>
+              {/* Secondary Decline option */}
+              <cakto-upsell-reject
+                upsell-reject-url="members_area"
+                className="w-full block text-center"
+              >
+                <span className="text-xs text-slate-400 hover:text-slate-200 underline underline-offset-4 transition-colors cursor-pointer inline-block">
+                  Não, vou continuar apenas com a Biblioteca.
+                </span>
+              </cakto-upsell-reject>
+            </cakto-upsell-buttons>
           </div>
 
         </div>
