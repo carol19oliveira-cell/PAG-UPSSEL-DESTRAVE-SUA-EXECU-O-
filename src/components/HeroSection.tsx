@@ -24,7 +24,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
         {/* Image right below headline */}
         <div className="my-6 max-w-2xl mx-auto flex justify-center">
           <img
-            src="https://i.ibb.co/N2DwY5Pc/mockup-upsell-destrave-execucao-otimizado.webp"
+            src="https://i.ibb.co/jPgjjyB8/Chat-GPT-Image-27-de-jul-de-2026-22-56-11.webp"
             alt="Destrave Sua Execução - Mockup"
             className="w-full h-auto max-h-[420px] object-contain rounded-2xl drop-shadow-[0_10px_35px_rgba(245,158,11,0.25)] hover:scale-[1.01] transition-transform duration-300"
             referrerPolicy="no-referrer"
