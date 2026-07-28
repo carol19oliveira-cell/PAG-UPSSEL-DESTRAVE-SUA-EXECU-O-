@@ -55,7 +55,7 @@ export const UpsellOfferCard: React.FC<UpsellOfferCardProps> = ({ onAccept, onDe
 
             <div className="flex items-baseline justify-center gap-1 font-heading">
               <span className="text-2xl sm:text-3xl font-extrabold text-amber-500">R$</span>
-              <span className="text-5xl sm:text-6xl font-black text-white tracking-tight">37,90</span>
+              <span className="text-5xl sm:text-6xl font-black text-white tracking-tight">27,90</span>
             </div>
 
             <p className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400/90 mt-2 font-heading">

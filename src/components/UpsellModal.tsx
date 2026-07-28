@@ -100,7 +100,7 @@ export const UpsellModal: React.FC<UpsellModalProps> = ({
                     <span className="text-emerald-400 font-bold">Garantido</span>
                   </div>
                   <div className="flex justify-between items-center text-amber-300 font-semibold pt-1 border-t border-slate-800">
-                    <span>+ Destrave Sua Execução (Upsell R$ 37,90)</span>
+                    <span>+ Destrave Sua Execução (Upsell R$ 27,90)</span>
                     <span className="text-emerald-400 font-bold">Adicionado</span>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export const UpsellModal: React.FC<UpsellModalProps> = ({
             </h3>
 
             <p className="text-sm text-slate-300 leading-relaxed">
-              Esta oferta especial de <strong className="text-amber-300">R$ 37,90 (80% OFF)</strong> é exclusiva para esta página de pós-compra. Se você fechar agora, não poderá adicionar este complemento por este valor promocional depois.
+              Esta oferta especial de <strong className="text-amber-300">R$ 27,90 (80% OFF)</strong> é exclusiva para esta página de pós-compra. Se você fechar agora, não poderá adicionar este complemento por este valor promocional depois.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -141,7 +141,7 @@ export const UpsellModal: React.FC<UpsellModalProps> = ({
                 className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-400 text-black font-black uppercase tracking-wider py-3.5 rounded-xl font-heading hover:from-amber-400 hover:to-amber-500 transition-all cursor-pointer"
               >
                 <Zap className="w-5 h-5" />
-                <span>QUERO APROVEITAR POR R$ 37,90</span>
+                <span>QUERO APROVEITAR POR R$ 27,90</span>
               </button>
 
               <button
