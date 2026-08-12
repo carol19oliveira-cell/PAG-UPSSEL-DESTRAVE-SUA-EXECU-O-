@@ -14,12 +14,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
         {/* Main Headline */}
-        <h1 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase italic tracking-tight text-white leading-tight font-heading mb-6">
-          Você já tem as <span className="text-amber-400">frases</span>.{' '}
-          <span className="block mt-2">
-            Agora faça sua <span className="gold-text-gradient">mão responder</span> ao que sua <span className="gold-text-gradient">mente quer tocar</span>.
-          </span>
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase italic tracking-tight text-white leading-tight font-heading mb-3">
+          Sua evolução <span className="text-amber-400">não termina aqui</span>.
         </h1>
+
+        {/* Subheadline */}
+        <p className="text-lg sm:text-2xl text-slate-200 max-w-3xl mx-auto font-medium leading-relaxed mb-6">
+          Desenvolva a <span className="gold-text-gradient font-bold">execução necessária</span> para aproveitar ao máximo tudo o que acabou de adquirir.
+        </p>
 
         {/* Image right below headline */}
         <div className="my-6 max-w-2xl mx-auto flex justify-center">
@@ -31,10 +33,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
           />
         </div>
 
+        {/* Highlighted Callout Below Image */}
+        <p className="text-xs sm:text-sm md:text-base font-extrabold text-amber-300 uppercase tracking-wider font-heading mt-2 mb-6 text-center px-2">
+          Você já expandiu seu vocabulário de frases.
+        </p>
+
         {/* Subheadline */}
         <div className="text-base sm:text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal mb-8 space-y-4">
           <p>
-            Existe um segundo <strong className="text-amber-400 font-bold">desafio</strong> que muitos baixistas só percebem quando começam a colocar essas frases em prática: <strong className="text-white">a execução</strong>.
+            Agora existe um segundo <strong className="text-amber-400 font-bold">desafio</strong> que muitos baixistas só percebem quando começam a colocar essas frases em prática: <strong className="text-white">a execução</strong>.
           </p>
 
           <p>
@@ -46,8 +53,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
           </p>
         </div>
 
+        {/* Hero CTA Offer Callout */}
+        <div className="mt-8 mb-2 flex flex-col items-center text-center max-w-xl mx-auto w-full bg-slate-900/80 border border-amber-500/40 rounded-2xl p-4 sm:p-5 shadow-lg backdrop-blur-sm">
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-wide text-amber-400 flex items-center justify-center gap-1.5 font-heading">
+            <span>⭐</span> Oferta exclusiva para novos alunos da Biblioteca
+          </span>
+          <div className="my-2 flex flex-wrap items-baseline justify-center gap-2 sm:gap-3">
+            <span className="text-sm sm:text-base font-medium text-slate-400 line-through decoration-rose-500/80 decoration-2">De R$ 97,90</span>
+            <span className="text-sm sm:text-base font-semibold text-slate-200">por apenas</span>
+            <span className="text-3xl sm:text-4xl font-black text-amber-400 font-heading">R$ 27,90</span>
+          </div>
+          <p className="text-xs sm:text-sm text-slate-300 font-medium">
+            Pagamento único <span className="text-amber-500/80 mx-1">•</span> Sem mensalidade <span className="text-amber-500/80 mx-1">•</span> Acesso vitalício
+          </p>
+        </div>
+
         {/* Hero CTA Button */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 max-w-xl mx-auto w-full">
+        <div className="flex flex-col items-center justify-center gap-4 max-w-xl mx-auto w-full">
           <cakto-upsell-buttons className="w-full flex flex-col items-center justify-center">
             <cakto-upsell-accept
               bg-color="#0f7865"
