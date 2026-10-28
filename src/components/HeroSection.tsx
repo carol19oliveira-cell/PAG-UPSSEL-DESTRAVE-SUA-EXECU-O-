@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight, ShieldCheck, Zap } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -7,6 +7,8 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 px-4 overflow-hidden bg-radial-dark">
       {/* Background glow circle */}
@@ -23,14 +25,30 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
           Desenvolva a <span className="gold-text-gradient font-bold">execução necessária</span> para aproveitar ao máximo tudo o que acabou de adquirir.
         </p>
 
-        {/* Image right below headline */}
+        {/* Image right below headline with pre-reserved space & instant local loading */}
         <div className="my-6 max-w-2xl mx-auto flex justify-center">
-          <img
-            src="https://i.ibb.co/Rk9vwGmG/Chat-GPT-Image-27-de-jul-de-2026-22-56-11-1.webp"
-            alt="Destrave Sua Execução - Mockup"
-            className="w-full h-auto max-h-[420px] object-contain rounded-2xl drop-shadow-[0_10px_35px_rgba(245,158,11,0.25)] hover:scale-[1.01] transition-transform duration-300"
-            referrerPolicy="no-referrer"
-          />
+          <div className="relative w-full aspect-[1535/1024] max-h-[420px] bg-slate-900/60 border border-amber-500/10 rounded-2xl overflow-hidden flex items-center justify-center shadow-2xl">
+            {/* Skeleton loader background while image initializes */}
+            {!imageLoaded && (
+              <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-800/80 to-slate-900 animate-pulse flex items-center justify-center">
+                <span className="text-xs text-amber-400/60 font-medium">Carregando imagem...</span>
+              </div>
+            )}
+            <img
+              src="/hero-mockup.webp"
+              alt="Destrave Sua Execução - Mockup"
+              width={1535}
+              height={1024}
+              loading="eager"
+              // @ts-ignore
+              fetchPriority="high"
+              decoding="async"
+              onLoad={() => setImageLoaded(true)}
+              className={`w-full h-full object-contain rounded-2xl drop-shadow-[0_10px_35px_rgba(245,158,11,0.25)] hover:scale-[1.01] transition-all duration-500 ${
+                imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
+            />
+          </div>
         </div>
 
         {/* Highlighted Callout Below Image */}
@@ -61,7 +79,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
           <div className="my-2 flex flex-wrap items-baseline justify-center gap-2 sm:gap-3">
             <span className="text-sm sm:text-base font-medium text-slate-400 line-through decoration-rose-500/80 decoration-2">De R$ 97,90</span>
             <span className="text-sm sm:text-base font-semibold text-slate-200">por apenas</span>
-            <span className="text-3xl sm:text-4xl font-black text-amber-400 font-heading">R$ 27,90</span>
+            <span className="text-3xl sm:text-4xl font-black text-amber-400 font-heading">R$ 59,90</span>
           </div>
           <p className="text-xs sm:text-sm text-slate-300 font-medium">
             Pagamento único <span className="text-amber-500/80 mx-1">•</span> Sem mensalidade <span className="text-amber-500/80 mx-1">•</span> Acesso vitalício
