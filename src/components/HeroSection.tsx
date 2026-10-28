@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowRight, ShieldCheck, Zap } from 'lucide-react';
+import heroMockupAsset from '../assets/hero-mockup.webp';
+
+const FALLBACK_IMAGE_URL = 'https://i.ibb.co/Rk9vwGmG/Chat-GPT-Image-27-de-jul-de-2026-22-56-11-1.webp';
 
 interface HeroSectionProps {
   onAccept: () => void;
@@ -7,7 +10,13 @@ interface HeroSectionProps {
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline }) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imgSrc, setImgSrc] = useState<string>(heroMockupAsset || '/hero-mockup.webp');
+
+  const handleImageError = () => {
+    if (imgSrc !== FALLBACK_IMAGE_URL) {
+      setImgSrc(FALLBACK_IMAGE_URL);
+    }
+  };
 
   return (
     <section className="relative pt-8 pb-12 sm:pt-12 sm:pb-16 px-4 overflow-hidden bg-radial-dark">
@@ -25,17 +34,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
           Desenvolva a <span className="gold-text-gradient font-bold">execução necessária</span> para aproveitar ao máximo tudo o que acabou de adquirir.
         </p>
 
-        {/* Image right below headline with pre-reserved space & instant local loading */}
-        <div className="my-6 max-w-2xl mx-auto flex justify-center">
-          <div className="relative w-full aspect-[1535/1024] max-h-[420px] bg-slate-900/60 border border-amber-500/10 rounded-2xl overflow-hidden flex items-center justify-center shadow-2xl">
-            {/* Skeleton loader background while image initializes */}
-            {!imageLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-800/80 to-slate-900 animate-pulse flex items-center justify-center">
-                <span className="text-xs text-amber-400/60 font-medium">Carregando imagem...</span>
-              </div>
-            )}
+        {/* Image right below headline with instant loading */}
+        <div className="my-4 max-w-sm sm:max-w-md mx-auto flex justify-center px-4">
+          <div className="relative w-full flex items-center justify-center">
             <img
-              src="/hero-mockup.webp"
+              src={imgSrc}
               alt="Destrave Sua Execução - Mockup"
               width={1535}
               height={1024}
@@ -43,10 +46,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onAccept, onDecline })
               // @ts-ignore
               fetchPriority="high"
               decoding="async"
-              onLoad={() => setImageLoaded(true)}
-              className={`w-full h-full object-contain rounded-2xl drop-shadow-[0_10px_35px_rgba(245,158,11,0.25)] hover:scale-[1.01] transition-all duration-500 ${
-                imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-              }`}
+              onError={handleImageError}
+              className="w-full max-h-[260px] sm:max-h-[300px] object-contain drop-shadow-[0_8px_25px_rgba(245,158,11,0.18)] hover:scale-[1.01] transition-transform duration-300"
             />
           </div>
         </div>
